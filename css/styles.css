@@ -1,0 +1,813 @@
+/* Sumadhwa Vijaya - Elegant Ornate Design */
+
+:root {
+    --primary-color: #D4AF37;
+    --gold-light: #F4E4BE;
+    --gold-dark: #B8941E;
+    --bg-dark: #0F0F0F;
+    --bg-secondary: #1A1A1A;
+    --bg-elevated: #242424;
+    --text-primary: #E8E8E8;
+    --text-secondary: #B0B0B0;
+    --text-muted: #707070;
+    --border-color: #333333;
+    --accent-red: #C41E3A;
+    --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans Devanagari', 'Georgia', 'Times New Roman', serif;
+    background-color: var(--bg-dark);
+    background-image: 
+        url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="%230F0F0F"/><circle cx="50" cy="50" r="1" fill="%23D4AF37" opacity="0.1"/></svg>'),
+        radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(196, 30, 58, 0.05) 0%, transparent 50%);
+    background-size: 100px 100px, cover, cover;
+    color: var(--text-primary);
+    line-height: 1.8;
+    min-height: 100vh;
+}
+
+header {
+    background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-dark) 100%);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 2rem 0.5rem;
+    position: relative;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+}
+
+.madhwa-icon {
+    position: absolute;
+    top: 1rem;
+    left: 1.5rem;
+    opacity: 0.9;
+    transition: all 0.3s ease;
+}
+
+.madhwa-icon:hover {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.madhwa-icon img {
+    height: 400px;
+    width: auto;
+    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3));
+    border-radius: 4px;
+}
+
+.language-selector-top {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.language-selector-top select {
+    padding: 0.6rem 1.2rem;
+    border-radius: 0;
+    border: 1px solid var(--border-color);
+    background: var(--bg-elevated);
+    color: var(--text-primary);
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.language-selector-top select:hover {
+    border-color: var(--primary-color);
+    background: var(--bg-secondary);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+}
+
+.header-content {
+    text-align: center;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+.header-content::before,
+.header-content::after {
+    content: "◈ ◈ ◈";
+    display: block;
+    color: var(--primary-color);
+    font-size: 0.8rem;
+    letter-spacing: 1rem;
+    opacity: 0.5;
+    margin: 1rem 0;
+}
+
+.header-content h1 {
+    font-size: 2.5rem;
+    margin: 0.5rem 0;
+    font-weight: 300;
+    letter-spacing: 3px;
+    color: var(--primary-color);
+    text-shadow: 
+        0 0 40px rgba(212, 175, 55, 0.4),
+        0 2px 4px rgba(0, 0, 0, 0.8);
+    font-family: 'Noto Sans Devanagari', serif;
+    position: relative;
+    display: inline-block;
+}
+
+.header-content h1::before,
+.header-content h1::after {
+    content: "✦";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    opacity: 0.6;
+}
+
+.header-content h1::before {
+    left: -3rem;
+}
+
+.header-content h1::after {
+    right: -3rem;
+}
+
+.subtitle {
+    font-size: 1.3rem;
+    color: var(--gold-light);
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+    font-style: italic;
+}
+
+.author {
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--text-muted);
+    margin-top: 1rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.nav-controls {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.sarga-selector {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.sarga-selector label {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+
+.sarga-selector select {
+    padding: 0.8rem 1.5rem;
+    border-radius: 0;
+    border: 1px solid var(--border-color);
+    background: var(--bg-elevated);
+    color: var(--text-primary);
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.sarga-selector select:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
+}
+
+.search-box {
+    flex: 1;
+    max-width: 600px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 0.9rem 1.5rem;
+    border-radius: 0;
+    border: 1px solid var(--border-color);
+    background: var(--bg-elevated);
+    font-size: 1rem;
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.search-box input::placeholder {
+    color: var(--text-muted);
+}
+
+.search-box input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background: var(--bg-secondary);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 2rem;
+    max-width: 1600px;
+    margin: 2rem auto;
+    padding: 0 2rem 3rem;
+}
+
+.info-panel {
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-elevated) 100%);
+    padding: 1.5rem;
+    border-radius: 0;
+    border: 1px solid var(--border-color);
+    border-top: 3px solid var(--primary-color);
+    height: fit-content;
+    position: sticky;
+    top: 2rem;
+    box-shadow: 
+        0 10px 40px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(212, 175, 55, 0.1);
+}
+
+.info-panel::before {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    pointer-events: none;
+}
+
+.info-panel::after {
+    content: "✦";
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--primary-color);
+    background: var(--bg-secondary);
+    padding: 0 0.8rem;
+    font-size: 1.2rem;
+}
+
+.info-panel h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.6rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    text-align: center;
+    position: relative;
+}
+
+.info-panel h2::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background: var(--primary-color);
+}
+
+.info-text {
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+}
+
+.philosophy-box {
+    background: var(--bg-elevated);
+    padding: 1.8rem;
+    border-radius: 0;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    position: relative;
+    box-shadow: inset 0 0 20px rgba(212, 175, 55, 0.05);
+}
+
+.philosophy-box::before,
+.philosophy-box::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--primary-color);
+}
+
+.philosophy-box::before {
+    top: -1px;
+    left: -1px;
+    border-right: none;
+    border-bottom: none;
+}
+
+.philosophy-box::after {
+    bottom: -1px;
+    right: -1px;
+    border-left: none;
+    border-top: none;
+}
+
+.philosophy-box h3 {
+    color: var(--gold-light);
+    font-size: 1.1rem;
+    margin-bottom: 1.2rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-align: center;
+    position: relative;
+    padding-bottom: 0.8rem;
+}
+
+.philosophy-box h3::after {
+    content: "◈";
+    display: block;
+    color: var(--primary-color);
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+    opacity: 0.6;
+}
+
+.philosophy-box ul {
+    list-style: none;
+    font-size: 0.9rem;
+}
+
+.philosophy-box li {
+    margin-bottom: 1rem;
+    padding-left: 2rem;
+    position: relative;
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+.philosophy-box li::before {
+    content: "◆";
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-size: 0.8rem;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+.content-area {
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-elevated) 100%);
+    padding: 2rem;
+    border-radius: 0;
+    border: 1px solid var(--border-color);
+    box-shadow: 
+        0 10px 40px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(212, 175, 55, 0.1);
+    position: relative;
+}
+
+.content-area::before {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    pointer-events: none;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    position: relative;
+}
+
+.section-heading::before {
+    content: "❦";
+    position: absolute;
+    bottom: -12px;
+    left: 20px;
+    color: var(--primary-color);
+    background: var(--bg-secondary);
+    padding: 0 1rem;
+    font-size: 1.5rem;
+}
+
+.section-heading::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100px;
+    height: 2px;
+    background: var(--primary-color);
+    bottom: -1px;
+}
+
+#sectionTitle {
+    font-size: 2rem;
+    color: var(--primary-color);
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+}
+
+.heading-controls {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.heading-audio-btn {
+    background: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    padding: 0.7rem 1.5rem;
+    border-radius: 0;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.heading-audio-btn:hover {
+    background: var(--primary-color);
+    color: var(--bg-dark);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+}
+
+.collapse-icon {
+    font-size: 1.5rem;
+    cursor: pointer;
+    user-select: none;
+    color: var(--text-secondary);
+    transition: all 0.3s ease;
+}
+
+.collapse-icon:hover {
+    color: var(--primary-color);
+}
+
+.sloka-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.sloka-card {
+    background: linear-gradient(to right, var(--bg-elevated), var(--bg-secondary));
+    padding: 1.5rem 2rem;
+    border-radius: 0;
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    transition: all 0.4s ease;
+    position: relative;
+    margin-bottom: 0.5rem;
+}
+
+.sloka-card.playing {
+    background: linear-gradient(to right, rgba(212, 175, 55, 0.15), rgba(212, 175, 55, 0.08));
+    border-color: var(--primary-color);
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+    transform: scale(1.02);
+}
+
+.sloka-card::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    left: -1px;
+    width: 3px;
+    background: var(--primary-color);
+    transform: scaleY(0);
+    transition: transform 0.4s ease;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+}
+
+.sloka-card.playing::before {
+    transform: scaleY(1);
+}
+
+.sloka-card::after {
+    content: "✦";
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+
+.sloka-card:hover {
+    background: var(--bg-elevated);
+    border-color: rgba(212, 175, 55, 0.4);
+    box-shadow: 
+        0 8px 30px rgba(212, 175, 55, 0.15),
+        inset 0 0 30px rgba(212, 175, 55, 0.05);
+    transform: translateX(8px);
+}
+
+.sloka-card:hover::before {
+    transform: scaleY(1);
+}
+
+.sloka-card:hover::after {
+    opacity: 0.3;
+    right: 2.5rem;
+}
+
+.sloka-number {
+    color: var(--primary-color);
+    font-weight: 300;
+    margin-bottom: 1.2rem;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    padding-left: 2rem;
+}
+
+.sloka-number::before {
+    content: "◈";
+    position: absolute;
+    left: 0;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+.sloka-text {
+    font-size: 1.6rem;
+    line-height: 2;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    font-weight: 300;
+    text-align: center;
+    padding: 0.5rem 1.5rem;
+    position: relative;
+}
+
+.sloka-text::before,
+.sloka-text::after {
+    content: """;
+    color: var(--primary-color);
+    font-size: 3rem;
+    opacity: 0.2;
+    position: absolute;
+    font-family: Georgia, serif;
+}
+
+.sloka-text::before {
+    top: -0.5rem;
+    left: 0;
+}
+
+.sloka-text::after {
+    content: """;
+    bottom: -0.5rem;
+    right: 0;
+}
+
+.sloka-meaning {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    font-style: italic;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+    line-height: 1.7;
+    text-align: center;
+}
+
+.back-button {
+    background: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    padding: 0.9rem 2.5rem;
+    border-radius: 0;
+    cursor: pointer;
+    margin-bottom: 2.5rem;
+    font-size: 0.95rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.back-button:hover {
+    background: var(--primary-color);
+    color: var(--bg-dark);
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.3);
+    transform: translateX(-3px);
+}
+
+.detail-header {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.madhva-image {
+    flex-shrink: 0;
+}
+
+.madhva-image img {
+    width: 150px;
+    height: 200px;
+    border-radius: 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+    border: 3px solid var(--primary-color);
+    object-fit: cover;
+}
+
+.detail-number {
+    flex: 1;
+}
+
+.detail-number h2 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.detail-number p {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+.detail-sloka h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.sloka-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.speaker-btn {
+    background: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    padding: 0.5rem 1rem;
+    border-radius: 0;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.speaker-btn:hover {
+    background: var(--primary-color);
+    color: var(--bg-dark);
+    transform: scale(1.05);
+}
+
+.speaker-btn:active {
+    transform: scale(0.95);
+}
+
+.sloka-text-detail {
+    font-size: 1.3rem;
+    line-height: 2;
+    padding: 1.5rem;
+    background-color: var(--bg-elevated);
+    border-radius: 0;
+    border-left: 3px solid var(--primary-color);
+    text-align: center;
+}
+
+.detail-meaning,
+.detail-commentary {
+    margin-top: 2rem;
+}
+
+.detail-meaning h3,
+.detail-commentary h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.detail-meaning p,
+.detail-commentary p {
+    font-size: 1rem;
+    line-height: 1.8;
+    padding: 1rem;
+    background-color: var(--bg-elevated);
+    border-radius: 0;
+}
+
+footer {
+    text-align: center;
+    padding: 3rem;
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border-color);
+    color: var(--text-muted);
+    margin-top: 5rem;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+    position: relative;
+}
+
+footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .container {
+        grid-template-columns: 320px 1fr;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+        padding: 0 1.5rem;
+        margin: 2rem auto;
+    }
+
+    .info-panel {
+        position: static;
+    }
+
+    .header-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .header-content h1::before,
+    .header-content h1::after {
+        display: none;
+    }
+
+    .nav-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-box {
+        max-width: 100%;
+    }
+
+    .sloka-card {
+        padding: 2rem;
+    }
+
+    .content-area {
+        padding: 2rem;
+    }
+}

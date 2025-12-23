@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="sa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>सुमध्वविजयः - Sumadhwa Vijaya</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="madhwa-icon">
+            <img src="images/madhwa.png" alt="Sri Madhvacharya">
+        </div>
+        <div class="language-selector-top">
+            <label for="language">Language:</label>
+            <select id="language">
+                <option value="sa">संस्कृतम् (Sanskrit)</option>
+                <option value="kn">ಕನ್ನಡ (Kannada)</option>
+                <option value="te">తెలుగు (Telugu)</option>
+            </select>
+        </div>
+        <div class="header-content">
+            <h1>सुमध्वविजयः</h1>
+            <p class="subtitle">Sumadhwa Vijaya - The Life of Sri Madhvacharya</p>
+            <p class="author">By Narayana Panditacharya</p>
+        </div>
+        <nav class="nav-controls">
+            <div class="sarga-selector">
+                <label for="sarga">सर्गः (Canto):</label>
+                <select id="sarga">
+                    <option value="1">प्रथमः (1st Canto)</option>
+                    <option value="2">द्वितीयः (2nd Canto)</option>
+                    <option value="3">तृतीयः (3rd Canto)</option>
+                    <option value="4">चतुर्थः (4th Canto)</option>
+                    <option value="5">पञ्चमः (5th Canto)</option>
+                    <option value="6">षष्ठः (6th Canto)</option>
+                    <option value="7">सप्तमः (7th Canto)</option>
+                    <option value="8">अष्टमः (8th Canto)</option>
+                    <option value="9">नवमः (9th Canto)</option>
+                    <option value="10">दशमः (10th Canto)</option>
+                    <option value="11">एकादशः (11th Canto)</option>
+                    <option value="12">द्वादशः (12th Canto)</option>
+                    <option value="13">त्रयोदशः (13th Canto)</option>
+                    <option value="14">चतुर्दशः (14th Canto)</option>
+                    <option value="15">पञ्चदशः (15th Canto)</option>
+                    <option value="16">षोडशः (16th Canto)</option>
+                </select>
+            </div>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search slokas...">
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="info-panel">
+                <h2>About Sumadhwa Vijaya</h2>
+                <p class="info-text">
+                    <strong>Sumadhwa Vijaya</strong> is a Sanskrit biographical epic (mahakavya) composed by 
+                    <strong>Narayana Panditacharya</strong>, a contemporary disciple of Sri Madhvacharya. 
+                    Written in the 13th century CE, it chronicles the extraordinary life, teachings, 
+                    and miracles of the founder of Dvaita Vedanta philosophy.
+                </p>
+                <div class="philosophy-box">
+                    <h3>Key Features</h3>
+                    <ul>
+                        <li><strong>16 Cantos (Sargas):</strong> Comprehensive biography</li>
+                        <li><strong>Eyewitness Account:</strong> Written by a contemporary</li>
+                        <li><strong>Historical Value:</strong> Primary source on Madhva's life</li>
+                        <li><strong>Literary Excellence:</strong> Classical Sanskrit poetry</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content-area">
+                <div class="section-heading" id="sectionHeading">
+                    <span id="sectionTitle"></span>
+                    <div class="heading-controls">
+                        <button class="heading-audio-btn" id="headingAudioBtn" title="Play all slokas">🔊 Play</button>
+                        <button class="heading-audio-btn" id="stopAudioBtn" title="Stop recitation" style="display: none;">⏹ Stop</button>
+                        <span class="collapse-icon" id="collapseIcon">▼</span>
+                    </div>
+                </div>
+                <div class="sloka-list" id="slokaList">
+                    <!-- Slokas will be loaded here dynamically -->
+                </div>
+                
+                <div class="sloka-detail" id="slokaDetail" style="display: none;">
+                    <button class="back-button" id="backButton">← Back to List</button>
+                    <div id="detailContent">
+                        <!-- Detailed sloka content will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Sumadhwa Vijaya by Narayana Panditacharya | For educational and devotional purposes</p>
+    </footer>
+
+    <!-- Transliteration scripts -->
+    <script src="js/transliterate.js"></script>
+    <script src="js/scripts/kannada-script.js"></script>
+    <script src="js/scripts/telugu-script.js"></script>
+    
+    <!-- Main application -->
+    <script src="js/app.js"></script>
+</body>
+</html>

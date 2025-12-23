@@ -1,0 +1,6 @@
+# Sample data structure for Sumadhwa Vijaya slokas
+# When you have the actual text, format it like this
+
+sarga,sloka_number,sloka_text,meaning,meaningKn,meaningTe
+1,1,ॐ नमः श्रीमन्मध्वाचार्याय सर्वशास्त्रप्रवक्त्रे ।,Salutations to Sri Madhvacharya the expounder of all scriptures,ಎಲ್ಲಾ ಶಾಸ್ತ್ರಗಳ ಪ್ರವಕ್ತರಾದ ಶ್ರೀ ಮಧ್ವಾಚಾರ್ಯರಿಗೆ ನಮಸ್ಕಾರಗಳು,సర్వ శాస్త్రాల ప్రవక్తలైన శ్రీ మధ్వాచార్యులకు నమస్కారములు
+1,2,श्रीमान्नारायणः साक्षाद् वेदान्तार्थप्रकाशकः ।,The glorious Narayana Himself the illuminator of Vedantic truths,ವೇದಾಂತ ಸತ್ಯಗಳನ್ನು ಪ್ರಕಾಶಿಸುವ ಶ್ರೀಮಾನ್ ನಾರಾಯಣನೇ,వేదాంత సత్యాలను ప్రకాశింపజేసే శ్రీమాన్ నారాయణుడే
