@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transliteration Test Suite</title>
+    <style>
+        body {
+            font-family: 'Noto Sans Devanagari', Arial, sans-serif;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+            border-bottom: 3px solid #2196F3;
+            padding-bottom: 10px;
+        }
+        .test-container {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .input-section {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        input[type="text"], select {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            font-family: 'Noto Sans Devanagari', Arial;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+        }
+        select {
+            width: auto;
+            min-width: 200px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #1976D2;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background: #e3f2fd;
+            border-left: 4px solid #2196F3;
+            border-radius: 4px;
+        }
+        .result-row {
+            margin: 8px 0;
+            display: flex;
+            gap: 10px;
+        }
+        .result-label {
+            font-weight: bold;
+            min-width: 150px;
+            color: #555;
+        }
+        .result-value {
+            font-size: 20px;
+            color: #000;
+        }
+        .test-cases {
+            margin-top: 20px;
+        }
+        .test-case {
+            display: inline-block;
+            margin: 5px;
+            padding: 8px 12px;
+            background: #fff3e0;
+            border: 1px solid #ff9800;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .test-case:hover {
+            background: #ffe0b2;
+        }
+        .batch-results {
+            margin-top: 20px;
+        }
+        .batch-item {
+            padding: 10px;
+            margin: 10px 0;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .batch-item.success {
+            border-left: 4px solid #4CAF50;
+        }
+        .batch-item.failure {
+            border-left: 4px solid #f44336;
+        }
+        .lang-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 15px 0;
+        }
+        .lang-button {
+            padding: 8px 16px;
+            background: #e0e0e0;
+            border: 2px solid #bdbdbd;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .lang-button.active {
+            background: #2196F3;
+            color: white;
+            border-color: #1976D2;
+        }
+        .direction-section {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            margin: 15px 0;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Kannada:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Telugu:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>🔤 Transliteration Test Suite</h1>
+    
+    <div class="test-container">
+        <h2>Single Test</h2>
+        <div class="input-section">
+            <label for="inputText">Input Text (Devanagari):</label>
+            <input type="text" id="inputText" placeholder="Enter text (e.g., नारायण)" />
+            
+            <button onclick="runTest()">Transliterate to All Languages</button>
+            <button onclick="clearResults()">Clear</button>
+        </div>
+        
+        <div id="singleResult"></div>
+        
+        <div class="test-cases">
+            <h3>Quick Test Cases (click to test):</h3>
+            <span class="test-case" onclick="testQuick('नारायण')">नारायण</span>
+            <span class="test-case" onclick="testQuick('ब्रह्म')">ब्रह्म</span>
+            <span class="test-case" onclick="testQuick('श्रीकृष्ण')">श्रीकृष्ण</span>
+            <span class="test-case" onclick="testQuick('वेदान्त')">वेदान्त</span>
+            <span class="test-case" onclick="testQuick('अद्वैत')">अद्वैत</span>
+            <span class="test-case" onclick="testQuick('ॐ')">ॐ</span>
+            <span class="test-case" onclick="testQuick('ज्ञान')">ज्ञान</span>
+        </div>
+    </div>
+    
+    <div class="test-container">
+        <h2>Batch Testing</h2>
+        <button onclick="runBatchTest()">Run All Tests</button>
+        <div id="batchResults" class="batch-results"></div>
+    </div>
+
+    <script src="../transliterate.js"></script>
+    <script src="../scripts/kannada-script.js"></script>
+    <script src="../scripts/telugu-script.js"></script>
+    <script src="../scripts/tamil-script.js"></script>
+    <script src="../scripts/english-script.js"></script>
+    <script>
+        const languages = [
+            { code: 'kn', name: 'Kannada' },
+            { code: 'te', name: 'Telugu' },
+            { code: 'ta', name: 'Tamil' },
+            { code: 'en', name: 'English' }
+        ];
+        
+        function runTest() {
+            const input = document.getElementById('inputText').value;
+            if (!input) {
+                alert('Please enter some text to test');
+                return;
+            }
+            displayResult(input);
+        }
+        
+        function testQuick(text) {
+            document.getElementById('inputText').value = text;
+            displayResult(text);
+        }
+        
+        function displayResult(text) {
+            const resultDiv = document.getElementById('singleResult');
+            let html = '<div class="result">';
+            html += `
+                <div class="result-row">
+                    <span class="result-label">Input (Devanagari):</span>
+                    <span class="result-value" style="font-size: 24px; font-weight: bold;">${text}</span>
+                </div>
+                <hr style="margin: 15px 0;">
+            `;
+            
+            languages.forEach(lang => {
+                const transliterated = transliterateText(text, lang.code);
+                const reversed = reverseTransliterateText(transliterated, lang.code);
+                const reversalWorks = reversed === text;
+                
+                html += `
+                    <div class="result-row" style="margin: 10px 0; padding: 10px; background: ${reversalWorks ? '#e8f5e9' : '#ffebee'}; border-radius: 4px;">
+                        <div style="width: 100%;">
+                            <div style="font-weight: bold; color: #555; margin-bottom: 5px;">
+                                ${lang.name} (${lang.code}) ${reversalWorks ? '✓' : '✗'}
+                            </div>
+                            <div style="font-size: 22px; margin: 5px 0;">
+                                ${transliterated}
+                            </div>
+                            <div style="font-size: 12px; color: #666; margin-top: 5px;">
+                                Reverse: ${reversed} ${reversalWorks ? '' : '<span style="color: red;">(Failed)</span>'}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            html += '</div>';
+            resultDiv.innerHTML = html;
+        }
+        
+        function clearResults() {
+            document.getElementById('singleResult').innerHTML = '';
+            document.getElementById('inputText').value = '';
+        }
+        
+        function runBatchTest() {
+            const testCases = [
+                'नारायण',
+                'ब्रह्म',
+                'श्रीकृष्ण',
+                'वेदान्त',
+                'ज्ञान',
+                'ॐ',
+                'अद्वैत',
+                'सद्भिः',
+                'हरिः',
+                'रामेति'
+            ];
+            
+            const resultsDiv = document.getElementById('batchResults');
+            let html = '<h3>Batch Test Results:</h3>';
+            let totalTests = 0;
+            let passedTests = 0;
+            
+            testCases.forEach((testCase, index) => {
+                html += `<div style="margin: 20px 0; padding: 15px; background: white; border: 1px solid #ddd; border-radius: 4px;">`;
+                html += `<h4 style="margin: 0 0 10px 0;">Test ${index + 1}: ${testCase}</h4>`;
+                
+                languages.forEach(lang => {
+                    const forward = transliterateText(testCase, lang.code);
+                    const reverse = reverseTransliterateText(forward, lang.code);
+                    const success = reverse === testCase;
+                    totalTests++;
+                    if (success) passedTests++;
+                    
+                    html += `
+                        <div class="batch-item ${success ? 'success' : 'failure'}">
+                            <strong>${lang.name}:</strong> ${testCase} → ${forward} → ${reverse}
+                            ${success ? '✓' : `✗ <span style="color: red;">(Expected: ${testCase})</span>`}
+                        </div>
+                    `;
+                });
+                
+                html += '</div>';
+            });
+            
+            html = `<div style="padding: 15px; background: ${passedTests === totalTests ? '#e8f5e9' : '#fff3e0'}; border-radius: 4px; margin-bottom: 20px;">
+                        <strong>Summary:</strong> ${passedTests} passed, ${totalTests - passedTests} failed out of ${totalTests} tests
+                    </div>` + html;
+            
+            resultsDiv.innerHTML = html;
+        }
+        
+        // Helper function for reverse transliteration
+        function reverseTransliterateText(text, sourceLang) {
+            if (sourceLang === 'sa') return text;
+            
+            const scriptConfig = SCRIPT_MAPPINGS[sourceLang];
+            if (!scriptConfig || !scriptConfig.reverseMapping) return text;
+            
+            let result = text.normalize('NFC');
+            
+            // Apply reverse mapping
+            for (const [targetChar, sourceChar] of Object.entries(scriptConfig.reverseMapping)) {
+                result = result.split(targetChar).join(sourceChar);
+            }
+            
+            return result.normalize('NFC');
+        }
+        
+        console.log('Transliteration Test Suite loaded successfully');
+        console.log('Available languages:', languages);
+        console.log('Script mappings:', Object.keys(SCRIPT_MAPPINGS));
+    </script>
+</body>
+</html>

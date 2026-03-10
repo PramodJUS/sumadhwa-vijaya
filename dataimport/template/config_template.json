@@ -1,0 +1,71 @@
+{
+  "_comment": "Configuration template for web scraping from dvaitavedanta.in",
+  "_instructions": "Copy this file, rename to config.json, and customize for your grantha",
+
+  "grantha_info": {
+    "name": "YourGranthaName",
+    "base_url": "https://dvaitavedanta.in",
+    "category_path": "/category-details/XXXX/YYYY/...",
+    "description": "Brief description of the text"
+  },
+
+  "output_paths": {
+    "json": "../data/grantha-details.json",
+    "csv": "../data/mainpage.csv",
+    "backup_dir": "../data/backups"
+  },
+
+  "heading_mappings": {
+    "_comment": "Map H2/H3 heading text to JSON keys",
+    "main_text_heading": "main_text",
+    "commentary_1_heading": "commentary_1_key",
+    "commentary_2_heading": "commentary_2_key",
+    "commentary_3_heading": "commentary_3_key"
+  },
+
+  "scraping_config": {
+    "delay_seconds": 1.5,
+    "timeout_seconds": 15,
+    "headless_browser": true,
+    "max_retries": 3
+  },
+
+  "content_loading": {
+    "_comment": "How does the page load content?",
+    "type": "onclick_links",
+    "_type_options": [
+      "auto_loaded - All content loads automatically",
+      "load_more_button - Requires clicking 'Load More' button",
+      "onclick_links - Requires clicking callArticle() or similar links",
+      "infinite_scroll - Requires scrolling to load more"
+    ],
+    "link_selector": "a.article[onclick^='callArticle']",
+    "article_container_selector": "div[id^='article']"
+  },
+
+  "text_cleaning": {
+    "remove_author_keywords": [
+      "कृता",
+      "कृत:",
+      "विरचित",
+      "विरचिता"
+    ],
+    "normalize_dandas": true,
+    "single_newlines_only": true,
+    "trim_whitespace": true
+  },
+
+  "topics": [
+    {
+      "_comment": "List all topics to scrape OR implement auto-discovery",
+      "id": 1,
+      "url": "https://dvaitavedanta.in/...",
+      "title": "Topic 1 Title"
+    },
+    {
+      "id": 2,
+      "url": "https://dvaitavedanta.in/...",
+      "title": "Topic 2 Title"
+    }
+  ]
+}

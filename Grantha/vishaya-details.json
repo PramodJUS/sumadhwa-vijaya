@@ -1,0 +1,316 @@
+{
+  "1": {
+    "विषयः": "मङ्गलश्लोक:",
+    "सारांशः": "This is the invocation verse (मङ्गलश्लोक) at the beginning of Vadavali, where Sri Jayatirtha offers reverence to his guru and the divine.",
+    "प्रयोजनम्": "To invoke divine blessings and set the auspicious tone for the philosophical discourse that follows.",
+    "संदर्भः": "Traditional practice in Sanskrit texts to begin with an invocation for the successful completion of the work.",
+    "मुख्यबिन्दवः": "Guru vandana (reverence to teacher), mangala (auspiciousness), and establishing the authority of the tradition."
+  },
+  "2": {
+    "विषयः": "मिथ्यात्वसाधकानुमानभङ्गः",
+    "सारांशः": "Refutation of the inference that establishes falsity/illusion (मिथ्यात्व). Jayatirtha critiques Advaita's position that the world is mithya (false/illusory).",
+    "प्रयोजनम्": "To establish the reality of the world and differences (भेद) against Advaita's doctrine of illusion (माया).",
+    "पूर्वपक्षः": "Advaitins argue that the world is mithya because it is subject to sublation (बाध) like a dream or rope-snake illusion.",
+    "सिद्धान्तः": "The world and differences are real (सत्य), not illusory. What appears real cannot be dismissed as false merely due to changeability.",
+    "संदर्भः": "Critical response to Advaita Vedanta's concept of maya and mithyatva.",
+    "मुख्यबिन्दवः": "Reality of the world, critique of bādha (sublation), establishment of Dvaita realism (तत्त्ववाद)."
+  },
+  "3": {
+    "विषयः": "अनिर्वाच्यत्वभङ्गः",
+    "सारांशः": "Refutation of the Advaita doctrine of anirvachanīyatva (indefinability), which claims the world is neither real nor unreal.",
+    "प्रयोजनम्": "To reject the logical inconsistency of claiming something is beyond the categories of real and unreal.",
+    "पूर्वपक्षः": "Advaitins claim the world is anirvachanīya - cannot be categorized as either sat or asat.",
+    "सिद्धान्तः": "Everything must be either real or unreal. The claim of a third category is logically impossible.",
+    "मुख्यबिन्दवः": "Law of excluded middle, rejection of anirvachanīyatva, binary nature of existence."
+  },
+  "4": {
+    "विषयः": "अविद्यालक्षणनिरासः",
+    "सारांशः": "Rejection of the definition of avidya (ignorance) as proposed by Advaitins.",
+    "प्रयोजनम्": "To show the incoherence in defining avidya as the cause of world-appearance.",
+    "पूर्वपक्षः": "Advaitins define avidya as indefinable, beginning-less ignorance that creates the illusion of the world.",
+    "सिद्धान्तः": "The definition of avidya is self-contradictory and lacks valid epistemological foundation.",
+    "मुख्यबिन्दवः": "Nature of avidya, critique of its definition, epistemological problems."
+  },
+  "5": {
+    "विषयः": "अविद्याप्रमाणनिरास:",
+    "सारांशः": "Rejection of the means of proof (pramāṇa) for establishing avidya.",
+    "प्रयोजनम्": "To demonstrate that there is no valid means of knowledge that can establish the existence of avidya.",
+    "पूर्वपक्षः": "Advaitins claim avidya is known through inference or scripture.",
+    "सिद्धान्तः": "Neither perception, inference, nor scripture validly establishes avidya as defined by Advaitins.",
+    "मुख्यबिन्दवः": "Pramāṇa analysis, validity of knowledge, epistemological critique."
+  },
+  "6": {
+    "विषयः": "दृश्यत्वविकल्पनिरास:",
+    "सारांशः": "Rejection of alternative explanations regarding perceptibility (dṛśyatva).",
+    "प्रयोजनम्": "To refute the argument that perceptibility implies unreality.",
+    "पूर्वपक्षः": "Advaitins argue that whatever is perceivable (dṛśya) is unreal, like objects in a dream.",
+    "सिद्धान्तः": "Perceptibility does not imply unreality; the argument confuses different categories.",
+    "मुख्यबिन्दवः": "Dṛśyatva hetu, dream analogy critique, valid inference rules."
+  },
+  "7": {
+    "विषयः": "दृश्यत्वहेतुनिरासः",
+    "सारांशः": "Rejection of perceptibility as a reason (hetu) for establishing falsity.",
+    "प्रयोजनम्": "To show that being perceivable cannot be used as logical reason to prove unreality.",
+    "तार्किकविश्लेषणम्": "Analysis of the inference: \"World is unreal because it is perceivable.\" Shows this lacks proper vyāpti.",
+    "मुख्यबिन्दवः": "Hetu-dosha (defect in reason), vyāpti failure, logical rigor."
+  },
+  "8": {
+    "विषयः": "जडत्वहेतुनिरास:",
+    "सारांशः": "Rejection of insentience (jaḍatva) as a reason for establishing unreality.",
+    "प्रयोजनम्": "To refute the claim that insentient objects are therefore unreal.",
+    "पूर्वपक्षः": "Advaitins argue that jaḍa (insentient) objects like pots are unreal.",
+    "सिद्धान्तः": "Insentience is a real property; it does not imply unreality of the object.",
+    "मुख्यबिन्दवः": "Jaḍatva analysis, reality of material objects, categories of existence."
+  },
+  "9": {
+    "विषयः": "परिच्छिन्नत्वहेतुनिरासः",
+    "सारांशः": "Rejection of finitude/limitation (paricchinnatva) as a reason for unreality.",
+    "प्रयोजनम्": "To establish that limited objects can be real.",
+    "पूर्वपक्षः": "Advaitins claim that anything limited or finite is unreal; only unlimited Brahman is real.",
+    "सिद्धान्तः": "Finitude is a real attribute and does not negate the reality of an entity.",
+    "मुख्यबिन्दवः": "Paricchinnatva, nature of limitation, svatantra-paratantra bheda."
+  },
+  "10": {
+    "विषयः": "मिथ्यात्वानुमानस्य प्रत्यक्षबाधः",
+    "सारांशः": "How perception (pratyakṣa) contradicts the inference of falsity.",
+    "प्रयोजनम्": "To show that direct perception contradicts the claim that the world is unreal.",
+    "तार्किकविश्लेषणम्": "Pratyakṣa is a stronger pramāṇa than anumāna. When they conflict, perception prevails.",
+    "मुख्यबिन्दवः": "Pratyakṣa-bādha, hierarchy of pramāṇas, primacy of direct perception."
+  },
+  "11": {
+    "विषयः": "मिथ्यात्वानुमानस्य श्रुतिविरोध:",
+    "सारांशः": "How the inference of falsity contradicts scripture (śruti).",
+    "प्रयोजनम्": "To demonstrate that Vedic texts affirm the reality of the world, not its falsity.",
+    "पूर्वपक्षः": "Advaitins interpret śruti passages like \"neha nānāsti kiñcana\" to mean the world is false.",
+    "सिद्धान्तः": "Proper interpretation of śruti shows it affirms bheda (difference) and reality of the world.",
+    "मुख्यबिन्दवः": "Śruti interpretation, Vedic authority, proper hermeneutics."
+  },
+  "12": {
+    "विषयः": "मिथ्यात्वानुमानस्य स्मृतिविरोधः",
+    "सारांशः": "How the inference of falsity contradicts smrti (traditional texts).",
+    "प्रयोजनम्": "To show that Bhagavad Gītā, Mahābhārata, and other smṛtis affirm reality.",
+    "सिद्धान्तः": "Smṛti texts consistently teach the reality of differences and the world.",
+    "मुख्यबिन्दवः": "Smṛti pramāṇa, Gītā teachings, authority of tradition."
+  },
+  "13": {
+    "विषयः": "मिथ्यात्वानुमानस्य अनुमानविरोधः",
+    "सारांशः": "How the inference of falsity contradicts other valid inferences.",
+    "प्रयोजनम्": "To demonstrate internal logical contradictions in the Advaita position.",
+    "तार्किकविश्लेषणम्": "Shows that the inference of mithyātva contradicts other accepted inferences in Advaita itself.",
+    "मुख्यबिन्दवः": "Internal consistency, anumāna-virodha, logical coherence."
+  },
+  "14": {
+    "विषयः": "मिथ्यात्वानुमानस्य दृष्टान्ते साध्यवैकल्यनिरूपणम्",
+    "सारांशः": "Examination of the absence of what is to be proved (sādhya) in the example (dṛṣṭānta).",
+    "प्रयोजनम्": "To show that the examples used by Advaitins do not actually prove unreality.",
+    "तार्किकविश्लेषणम्": "Analysis of dṛṣṭānta-dosha. Examples like rope-snake, dream, etc., fail to establish the sādhya.",
+    "मुख्यबिन्दवः": "Dṛṣṭānta validity, sādhya-vikalya, proper analogical reasoning."
+  },
+  "15": {
+    "विषयः": "मिथ्यात्वहेतूनां प्रतिकूलतर्कपराहतिः",
+    "सारांशः": "Defeat of reasons for falsity through counter-reasoning (pratikūla-tarka).",
+    "प्रयोजनम्": "To present positive arguments for reality that overcome arguments for unreality.",
+    "तार्किकविश्लेषणम्": "Use of tarka (reasoning) to show that the same logic used for mithyātva proves satyatva.",
+    "मुख्यबिन्दवः": "Pratikūla-tarka, dialectical reasoning, turning opponent's logic."
+  },
+  "16": {
+    "विषयः": "अंशित्वानुमानस्य बाधः",
+    "सारांशः": "Sublation/contradiction of the inference regarding partiality (aṃśitva).",
+    "प्रयोजनम्": "To refute the claim that jīva is a part (aṃśa) of Brahman in the Advaita sense.",
+    "पूर्वपक्षः": "Some argue jīva is an aṃśa of Brahman, subject to limitation by avidya.",
+    "सिद्धान्तः": "While jīva is dependent on Brahman, the relationship is not one of avidya-caused partition.",
+    "मुख्यबिन्दवः": "Jīva-Brahman relationship, aṃśa doctrine, svatantra-paratantra."
+  },
+  "17": {
+    "विषयः": "अंशित्वानुमाननिरासः",
+    "सारांशः": "Rejection of the inference establishing partiality.",
+    "प्रयोजनम्": "Further refutation of incorrect understanding of jīva-Brahman relationship.",
+    "सिद्धान्तः": "Jīva is eternally distinct from Brahman, not a temporary partition.",
+    "मुख्यबिन्दवः": "Eternal distinction, jīva-svabhāva, rejection of identity."
+  },
+  "18": {
+    "विषयः": "मिथ्यात्त्रहेतूनामप्रयोजकत्वम्",
+    "सारांशः": "The reasons for falsity are ineffective/useless (aprayojaka).",
+    "प्रयोजनम्": "To show that none of the reasons given for mithyātva actually accomplish their purpose.",
+    "तार्किकविश्लेषणम्": "Systematic examination showing each hetu for mithyātva fails to prove the sādhya.",
+    "मुख्यबिन्दवः": "Aprayojakatva, failure of proof, inadequacy of arguments."
+  },
+  "19": {
+    "विषयः": "सत्यत्वहेतूनां प्रतिकूलतर्कोद्धारः",
+    "सारांशः": "Presentation of counter-reasoning for the reasons establishing reality (satyatva).",
+    "प्रयोजनम्": "To positively establish the reality of the world through valid reasoning.",
+    "सिद्धान्तः": "The world is real, as established by perception, scripture, and valid inference.",
+    "मुख्यबिन्दवः": "Positive establishment of reality, satyatva-hetu, valid pramāṇas."
+  },
+  "20": {
+    "विषयः": "नेह नानेति श्रुत्यर्थंविचारः",
+    "सारांशः": "Examination of the meaning of the scriptural text \"neha nānāsti kiñcana\" (There is no diversity here).",
+    "प्रयोजनम्": "To provide correct interpretation of this Upaniṣadic passage against Advaita misinterpretation.",
+    "पूर्वपक्षः": "Advaitins interpret this to mean no real differences exist.",
+    "सिद्धान्तः": "The passage negates seeing diversity in Brahman alone, not all diversity everywhere.",
+    "मुख्यबिन्दवः": "Śruti interpretation, context analysis, correct hermeneutics."
+  },
+  "21": {
+    "विषयः": "एकमेवेति श्रुत्यर्थविचारः",
+    "सारांशः": "Examination of the meaning of \"ekam eva\" (One alone) scriptural passages.",
+    "प्रयोजनम्": "To explain the Upaniṣadic teaching of oneness without negating real differences.",
+    "पूर्वपक्षः": "Advaitins claim \"ekam eva\" means only non-dual Brahman exists.",
+    "सिद्धान्तः": "Oneness refers to Brahman's uniqueness and supremacy, not absence of real entities.",
+    "मुख्यबिन्दवः": "Ekatva interpretation, Brahman supremacy, compatible plurality."
+  },
+  "22": {
+    "विषयः": "सत्यं ज्ञानमिति श्रुत्यर्थ:",
+    "सारांशः": "Meaning of the scripture \"satyaṃ jñānam anantam brahma\" (Brahman is truth, knowledge, infinite).",
+    "प्रयोजनम्": "To explain Brahman's defining attributes without implying world-unreality.",
+    "सिद्धान्तः": "These are essential attributes of Brahman that distinguish it from dependent entities.",
+    "मुख्यबिन्दवः": "Brahman-lakṣaṇa, essential attributes, svarūpa-viśeṣaṇa."
+  },
+  "23": {
+    "विषयः": "भेदबाधकतया प्रतीयमानयुक्तिविरोधः",
+    "सारांशः": "Contradiction in the reasoning that appears to sublate difference (bheda).",
+    "प्रयोजनम्": "To refute arguments claiming to sublate or negate real differences.",
+    "तार्किकविश्लेषणम्": "Shows internal contradictions in attempts to prove bheda-bādha.",
+    "मुख्यबिन्दवः": "Bheda-bādha critique, reality of differences, logical analysis."
+  },
+  "24": {
+    "विषयः": "भेदमिथ्यात्वानुमानस्य सोपाधिकत्वकथनम्",
+    "सारांशः": "Statement that the inference of falsity of difference is conditional/qualified (sopādhika).",
+    "प्रयोजनम्": "To show the inference has unacknowledged conditions that invalidate it.",
+    "तार्किकविश्लेषणम्": "Identifies hidden upādhis (conditions) in the Advaita argument.",
+    "मुख्यबिन्दवः": "Sopādhika-hetu, conditional reasoning, upādhi identification."
+  },
+  "25": {
+    "विषयः": "भेदस्य प्रत्यक्षाद्यग्राह्यत्वपूर्वपक्ष:",
+    "सारांशः": "The objection (pūrvapakṣa) that difference cannot be grasped by perception and other means.",
+    "प्रयोजनम्": "To present and then refute the claim that bheda is not known through pramāṇas.",
+    "पूर्वपक्षः": "Opponents claim difference is not directly perceived or validly known.",
+    "मुख्यबिन्दवः": "Epistemology of difference, pramāṇa access, preparatory to refutation."
+  },
+  "26": {
+    "विषयः": "भेदस्य धर्मिस्वरूपत्वसमर्थनम्",
+    "सारांशः": "Justification that difference is the essential nature (svarūpa) of the substrate (dharmin).",
+    "प्रयोजनम्": "To establish that bheda is intrinsic to objects, not imposed or illusory.",
+    "सिद्धान्तः": "Difference is svarūpa-bhūta (essential), not upādhi-based (conditional).",
+    "मुख्यबिन्दवः": "Svarūpa-bheda, intrinsic nature, essence vs. accident."
+  },
+  "27": {
+    "विषयः": "कालादेः साक्षिसिद्धत्वसमर्थनम्",
+    "सारांशः": "Justification that time and other entities are established through sākṣin (witness-consciousness).",
+    "प्रयोजनम्": "To validate the reality of time and similar categories through inner perception.",
+    "मुख्यबिन्दवः": "Sākṣi-pramāṇa, inner witness, validity of internal perception."
+  },
+  "28": {
+    "विषयः": "साक्षिसमर्थनम्",
+    "सारांशः": "Justification/validation of the sākṣin (witness-consciousness) itself.",
+    "प्रयोजनम्": "To establish sākṣi as a valid means of knowledge.",
+    "सिद्धान्तः": "Sākṣi is self-validating and directly reveals its objects.",
+    "मुख्यबिन्दवः": "Sākṣi epistemology, self-luminosity, immediate knowledge."
+  },
+  "29": {
+    "विषयः": "प्रामाण्यस्य स्वतस्त्व समर्थनम्",
+    "सारांशः": "Justification of intrinsic validity (svataḥ-prāmāṇya) of knowledge.",
+    "प्रयोजनम्": "To establish that valid knowledge is self-validating, not requiring external proof.",
+    "सिद्धान्तः": "Prāmāṇya is svataḥ (intrinsic), while invalidity requires separate proof.",
+    "मुख्यबिन्दवः": "Svataḥ-prāmāṇya, self-validity, epistemological foundation."
+  },
+  "30": {
+    "विषयः": "कालस्य साक्षिवेद्यत्वसमर्थनोपसंहारः",
+    "सारांशः": "Conclusion of the justification that time is known through sākṣi.",
+    "प्रयोजनम्": "To summarize and conclude the argument for sākṣi-knowledge of time.",
+    "मुख्यबिन्दवः": "Kāla-tattva, sākṣi-vedya, epistemological conclusion."
+  },
+  "31": {
+    "विषयः": "भेदप्रत्यक्षस्य अन्योन्याश्रयाद्दयुद्धारः",
+    "सारांशः": "Rescue from the charge of mutual dependence (anyonya-āśraya) in the perception of difference.",
+    "प्रयोजनम्": "To refute the objection that knowing difference requires prior knowledge of terms, causing circularity.",
+    "तार्किकविश्लेषणम्": "Shows that perception of bheda and terms can be simultaneous, avoiding circularity.",
+    "मुख्यबिन्दवः": "Anyonya-āśraya refutation, simultaneous cognition, logical defense."
+  },
+  "32": {
+    "विषयः": "धर्मप्रतियोगि भेदप्रत्ययानां यौगपद्यप्रतिपादनम्",
+    "सारांशः": "Demonstration of the simultaneity of cognitions of attribute (dharma), counter-correlate (pratiyogin), and difference (bheda).",
+    "प्रयोजनम्": "To establish that these cognitions occur together, not sequentially.",
+    "सिद्धान्तः": "Dharma, pratiyogin, and bheda are cognized simultaneously in one cognitive act.",
+    "मुख्यबिन्दवः": "Yugapat-jñāna, simultaneous cognition, cognitive phenomenology."
+  },
+  "33": {
+    "विषयः": "विशेषसमर्थनम्",
+    "सारांशः": "Justification of viśeṣa (individuating attribute/particular).",
+    "प्रयोजनम्": "To establish the reality of individuating properties that make each entity unique.",
+    "पूर्वपक्षः": "Opponents deny real viśeṣas, claiming differences are conventional or unreal.",
+    "सिद्धान्तः": "Viśeṣas are real and necessary to account for individuation and difference.",
+    "मुख्यबिन्दवः": "Viśeṣa-tattva, individuation, ontological categories."
+  },
+  "34": {
+    "विषयः": "भेदप्रतीत्याक्षेपनिरासोपसंहारः",
+    "सारांशः": "Conclusion of the rejection of objections to the cognition of difference.",
+    "प्रयोजनम्": "To summarize all refutations of challenges to bheda-pratyaya (cognition of difference).",
+    "सिद्धान्तः": "Bheda is validly cognized through perception and other pramāṇas; all objections fail.",
+    "मुख्यबिन्दवः": "Summary of epistemological defense, validity of bheda-knowledge, comprehensive refutation."
+  },
+  "35": {
+    "विषयः": "भेदमिथ्यात्वानुमानस्य प्रतिज्ञाविरोधः",
+    "सारांशः": "Contradiction of the thesis (pratijñā) in the inference of falsity of difference.",
+    "प्रयोजनम्": "To show that the very statement of the thesis contradicts itself.",
+    "तार्किकविश्लेषणम्": "Demonstrates pratijñā-virodha: asserting \"bheda is false\" requires acknowledging difference.",
+    "मुख्यबिन्दवः": "Pratijñā-virodha, self-contradiction, performative inconsistency."
+  },
+  "36": {
+    "विषयः": "भेदमिथ्यात्वानुमानस्य व्यभिचारादिकथनम्",
+    "सारांशः": "Statement of deviation (vyabhicāra) and other defects in the inference that tries to establish the falsity of difference (bheda).",
+    "प्रयोजनम्": "Final refutation of Advaita's claim that differences are false, establishing the permanent reality of पञ्चभेद.",
+    "सिद्धान्तः": "The five-fold difference (पञ्चभेद) is eternally real and cannot be sublated or shown to be false.",
+    "मुख्यबिन्दवः": "Vyabhicāra (deviation in inference), reality of bheda (difference), finality of Dvaita position."
+  },
+  "_glossary": {
+    "मिथ्यात्व": "Falsity, illusion - the Advaita doctrine that the world is neither real nor unreal",
+    "अनिर्वाच्यत्व": "Indefinability - claim that the world cannot be categorized as real or unreal",
+    "अविद्या": "Ignorance - in Advaita, the inexplicable power that creates world-appearance",
+    "दृश्यत्व": "Perceptibility - quality of being an object of perception",
+    "जडत्व": "Insentience - property of being non-conscious",
+    "परिच्छिन्नत्व": "Finitude, limitation - quality of being bounded",
+    "व्याप्ति": "Universal concomitance - invariable relation between hetu (reason) and sādhya (conclusion)",
+    "अनुमान": "Inference - one of the valid means of knowledge (pramāṇa)",
+    "हेतु": "Reason, logical mark - the middle term in an inference",
+    "दृष्टान्त": "Example, instance - supporting case in an inference",
+    "साध्य": "What is to be proved - the conclusion in an inference",
+    "बाध": "Sublation - cancellation of one knowledge by another (used by Advaitins)",
+    "भेद": "Difference - the fundamental reality in Dvaita philosophy",
+    "पञ्चभेद": "Five-fold difference - between jīva-jīva, jīva-Īśvara, jīva-jada, jada-jada, Īśvara-jada",
+    "तत्त्ववाद": "Realism - Dvaita's position that differences and the world are ultimately real",
+    "व्यभिचार": "Deviation - logical fallacy where the reason is not invariably connected to the conclusion",
+    "प्रत्यक्ष": "Perception - direct sensory knowledge, primary pramāṇa",
+    "श्रुति": "Revealed scripture - the Vedas and Upaniṣads",
+    "स्मृति": "Traditional texts - Purāṇas, Itihāsas, Dharmaśāstras",
+    "अंशित्व": "Partiality - being a part or portion of something",
+    "तर्क": "Reasoning, dialectics - supportive reasoning in philosophical argument",
+    "सोपाधिक": "Conditional, qualified - having hidden conditions (upādhi)",
+    "धर्मिन्": "Substrate, subject - that which possesses attributes",
+    "स्वरूप": "Essential nature, intrinsic form",
+    "साक्षिन्": "Witness-consciousness - inner self-luminous awareness",
+    "प्रामाण्य": "Validity of knowledge - quality of being a valid cognition",
+    "स्वतः": "Intrinsically, from itself - self-validating",
+    "अन्योन्याश्रय": "Mutual dependence, circularity - logical fallacy of circular reasoning",
+    "प्रतियोगिन्": "Counter-correlate - the second term in a relation",
+    "विशेष": "Individuating attribute, particular - that which makes an entity unique",
+    "प्रतिज्ञा": "Thesis, proposition - the statement to be proved"
+  },
+  "_meta": {
+    "total_topics": 36,
+    "author": "Sri Jayatirtha (Teeka Acharya)",
+    "commentators": [
+      "Raghavendra Tirtha (भावदीपा)",
+      "Srinivasa Tirtha (प्रकाशः)"
+    ],
+    "philosophy": "Dvaita Vedanta",
+    "primary_purpose": "Refutation of Advaita's mithyatva doctrine and establishment of bheda-vāda",
+    "structure": "Follows systematic refutation of Advaita positions on unreality and difference",
+    "key_concepts": [
+      "मिथ्यात्व-खण्डन",
+      "भेद-स्थापन",
+      "तत्त्ववाद",
+      "पञ्चभेद",
+      "प्रमाण-विचार"
+    ]
+  }
+}

@@ -1,8 +1,24 @@
 // Global variables
 let allSlokas = [];
 let filteredSlokas = [];
+let granthaDetails = {};
 let currentLanguage = 'sa';
 let currentView = 'list';
+let currentSloka = null; // Track current sloka being viewed
+
+// Readability settings
+let fontSize = 1.15; // rem
+let lineSpacing = 2;
+
+// Pratika identifier instance
+let pratikaIdentifier = null;
+
+// Commentary visibility settings
+let visibleCommentaries = {
+    'भावप्रकाशिका': true,
+    'पदार्थदीपिकोद्बोधिका': true,
+    'मन्दोपाकारिणी': true
+};
 
 // Language translations
 const languages = {
@@ -30,6 +46,54 @@ const languages = {
         loading: 'శ్లోకాలు లోడ్ అవుతున్నాయి...',
         noResults: 'శ్లోకాలు కనుగొనబడలేదు.',
         footer: 'నారాయణ పండితాచార్యుల సుమధ్వవిజయ | విద్యా మరియు భక్తి ప్రయోజనాల కోసం'
+    },
+    en: {
+        title: 'Sumadhwa Vijaya - The Life of Sri Madhvacharya',
+        searchPlaceholder: 'Search slokas...',
+        backToList: '← Back to List',
+        loading: 'Loading slokas...',
+        noResults: 'No slokas found.',
+        footer: 'Sumadhwa Vijaya by Narayana Panditacharya | For educational and devotional purposes'
+    },
+    ta: {
+        title: 'Sumadhwa Vijaya - The Life of Sri Madhvacharya',
+        searchPlaceholder: 'Search slokas...',
+        backToList: '← Back to List',
+        loading: 'Loading slokas...',
+        noResults: 'No slokas found.',
+        footer: 'Sumadhwa Vijaya by Narayana Panditacharya | For educational and devotional purposes'
+    },
+    ml: {
+        title: 'Sumadhwa Vijaya - The Life of Sri Madhvacharya',
+        searchPlaceholder: 'Search slokas...',
+        backToList: '← Back to List',
+        loading: 'Loading slokas...',
+        noResults: 'No slokas found.',
+        footer: 'Sumadhwa Vijaya by Narayana Panditacharya | For educational and devotional purposes'
+    },
+    bn: {
+        title: 'Sumadhwa Vijaya - The Life of Sri Madhvacharya',
+        searchPlaceholder: 'Search slokas...',
+        backToList: '← Back to List',
+        loading: 'Loading slokas...',
+        noResults: 'No slokas found.',
+        footer: 'Sumadhwa Vijaya by Narayana Panditacharya | For educational and devotional purposes'
+    },
+    gu: {
+        title: 'Sumadhwa Vijaya - The Life of Sri Madhvacharya',
+        searchPlaceholder: 'Search slokas...',
+        backToList: '← Back to List',
+        loading: 'Loading slokas...',
+        noResults: 'No slokas found.',
+        footer: 'Sumadhwa Vijaya by Narayana Panditacharya | For educational and devotional purposes'
+    },
+    or: {
+        title: 'Sumadhwa Vijaya - The Life of Sri Madhvacharya',
+        searchPlaceholder: 'Search slokas...',
+        backToList: '← Back to List',
+        loading: 'Loading slokas...',
+        noResults: 'No slokas found.',
+        footer: 'Sumadhwa Vijaya by Narayana Panditacharya | For educational and devotional purposes'
     }
 };
 
@@ -44,21 +108,36 @@ const backButton = document.getElementById('backButton');
 const sectionHeading = document.getElementById('sectionHeading');
 const sectionTitle = document.getElementById('sectionTitle');
 const collapseIcon = document.getElementById('collapseIcon');
+const container = document.querySelector('.container');
 
 // Initialize the application
 document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM loaded, initializing...');
-    
+
+    // Initialize pratika identifier
+    if (typeof PratikaIdentifier !== 'undefined') {
+        pratikaIdentifier = new PratikaIdentifier();
+        console.log('Pratika identifier initialized');
+    } else {
+        console.warn('PratikaIdentifier not available');
+    }
+
     // Load saved language preference
     const savedLanguage = localStorage.getItem('smvLanguage') || 'sa';
     currentLanguage = savedLanguage;
     if (languageSelect) {
         languageSelect.value = savedLanguage;
     }
-    
+
     loadSlokas();
+    loadGranthaDetails();
     setupEventListeners();
+    setupReadabilityControls();
+    loadReadabilitySettings();
     updateUILanguage();
+    setupKeyboardShortcuts();
+    loadCommentarySettings();
+    setupHeaderCommentaryDropdown();
 });
 
 // Setup event listeners
@@ -66,37 +145,48 @@ function setupEventListeners() {
     if (languageSelect) {
         languageSelect.addEventListener('change', handleLanguageChange);
     }
-    
+
     if (sargaSelect) {
         sargaSelect.addEventListener('change', filterSlokas);
     }
-    
+
     if (searchInput) {
         searchInput.addEventListener('input', searchSlokas);
     }
-    
-    if (backButton) {
-        backButton.addEventListener('click', () => {
-            slokaDetail.style.display = 'none';
-            slokaList.style.display = 'block';
-            currentView = 'list';
-        });
-    }
-    
+
+
     if (collapseIcon) {
         collapseIcon.addEventListener('click', toggleSlokaList);
     }
-    
+
     // Add heading audio button functionality
     const headingAudioBtn = document.getElementById('headingAudioBtn');
     if (headingAudioBtn) {
         headingAudioBtn.addEventListener('click', playAllSlokas);
     }
-    
+
     // Add stop button functionality
     const stopAudioBtn = document.getElementById('stopAudioBtn');
     if (stopAudioBtn) {
         stopAudioBtn.addEventListener('click', stopRecitation);
+    }
+
+    // Add panel toggle button functionality (on the panel itself)
+    const panelToggleBtn = document.getElementById('panelToggleBtn');
+    if (panelToggleBtn) {
+        panelToggleBtn.addEventListener('click', toggleInfoPanel);
+    }
+
+    // Add home button functionality (Madhva image)
+    const homeButton = document.getElementById('homeButton');
+    if (homeButton) {
+        homeButton.addEventListener('click', goToHome);
+    }
+
+    // Add header toggle button functionality
+    const headerToggleBtn = document.getElementById('headerToggleBtn');
+    if (headerToggleBtn) {
+        headerToggleBtn.addEventListener('click', toggleHeader);
     }
 }
 
@@ -105,7 +195,15 @@ function handleLanguageChange() {
     currentLanguage = languageSelect.value;
     localStorage.setItem('smvLanguage', currentLanguage);
     updateUILanguage();
-    filterSlokas();
+
+    // Update the appropriate view
+    if (currentView === 'detail' && currentSloka) {
+        // Refresh detail view with new language
+        showSlokaDetail(currentSloka);
+    } else {
+        // Update list view
+        filterSlokas();
+    }
 }
 
 // Update UI language
@@ -127,7 +225,7 @@ function updateUILanguage() {
 async function loadSlokas() {
     try {
         console.log('Loading slokas...');
-        const response = await fetch('data/sarga-1.csv');
+        const response = await fetch('Grantha/mainpage.csv');
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -139,6 +237,21 @@ async function loadSlokas() {
     } catch (error) {
         console.error('Error loading slokas:', error);
         slokaList.innerHTML = '<p class="error">Error loading slokas: ' + error.message + '. Please refresh the page.</p>';
+    }
+}
+
+// Load detailed commentaries from grantha-details.json
+async function loadGranthaDetails() {
+    try {
+        console.log('Loading grantha details...');
+        const response = await fetch('Grantha/grantha-details.json');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        granthaDetails = await response.json();
+        console.log('Grantha details loaded:', Object.keys(granthaDetails).length, 'entries');
+    } catch (error) {
+        console.error('Error loading grantha details:', error);
     }
 }
 
@@ -217,10 +330,8 @@ function searchSlokas() {
         const cleanSlokaText = sloka.sloka_text.toLowerCase();
         
         let transliteratedText = cleanSlokaText;
-        if (currentLanguage === 'kn') {
-            transliteratedText = transliterateText(cleanSlokaText, 'kn').toLowerCase();
-        } else if (currentLanguage === 'te') {
-            transliteratedText = transliterateText(cleanSlokaText, 'te').toLowerCase();
+        if (currentLanguage !== 'sa') {
+            transliteratedText = transliterateText(cleanSlokaText, currentLanguage).toLowerCase();
         }
         
         return cleanSlokaText.includes(searchTerm) ||
@@ -253,10 +364,8 @@ function displaySlokas(slokas) {
         
         let slokaText = sloka.sloka_text;
         try {
-            if (currentLanguage === 'kn') {
-                slokaText = transliterateText(sloka.sloka_text, 'kn');
-            } else if (currentLanguage === 'te') {
-                slokaText = transliterateText(sloka.sloka_text, 'te');
+            if (currentLanguage !== 'sa') {
+                slokaText = transliterateText(sloka.sloka_text, currentLanguage);
             }
         } catch (e) {
             console.error('Transliteration error:', e);
@@ -264,7 +373,7 @@ function displaySlokas(slokas) {
         
         slokaCard.innerHTML = `
             <div class="sloka-number">Sarga ${sloka.sarga}, Sloka ${sloka.sloka_number}</div>
-            <div class="sloka-text">${slokaText}</div>
+            <div class="sloka-text">${slokaText.replace(/\n/g, '<br>')}</div>
             ${sloka.meaning ? `<div class="sloka-meaning">${sloka.meaning}</div>` : ''}
         `;
         
@@ -278,66 +387,139 @@ function displaySlokas(slokas) {
 // Show sloka detail
 function showSlokaDetail(sloka) {
     currentView = 'detail';
+    currentSloka = sloka; // Store current sloka
     slokaList.style.display = 'none';
     slokaDetail.style.display = 'block';
-    
+
     let slokaText = sloka.sloka_text;
-    if (currentLanguage === 'kn') {
-        slokaText = transliterateText(sloka.sloka_text, 'kn');
-    } else if (currentLanguage === 'te') {
-        slokaText = transliterateText(sloka.sloka_text, 'te');
+    if (currentLanguage !== 'sa') {
+        slokaText = transliterateText(sloka.sloka_text, currentLanguage);
     }
-    
-    let meaning = sloka.meaning;
-    if (currentLanguage === 'kn' && sloka.meaningKn) {
-        meaning = sloka.meaningKn;
-    } else if (currentLanguage === 'te' && sloka.meaningTe) {
-        meaning = sloka.meaningTe;
-    }
-    
+
+    // Get detailed commentaries from granthaDetails
+    const key = `${sloka.sarga}.${sloka.sloka_number}`;
+    const details = granthaDetails[key] || {};
+
     // Store original text for audio (always use Devanagari for speech)
     const audioText = sloka.sloka_text;
-    
+
+    // Build commentaries HTML
+    let commentariesHTML = '';
+    const commentaryNames = {
+        'भावप्रकाशिका': 'Bhavaprakashika',
+        'पदार्थदीपिकोद्बोधिका': 'Padarthadeepikodbhodhika',
+        'मन्दोपाकारिणी': 'Mandopakarini'
+    };
+
+    for (const [devanagariName, englishName] of Object.entries(commentaryNames)) {
+        // Skip if commentary is hidden
+        if (!visibleCommentaries[devanagariName]) {
+            continue;
+        }
+
+        if (details[devanagariName]) {
+            let commentaryText = details[devanagariName];
+            let pratikaPositions = [];
+
+            // Find pratikas first (before any modification)
+            if (pratikaIdentifier) {
+                const pratikas = pratikaIdentifier.findAllPratikas(commentaryText);
+                pratikaPositions = pratikas.map(p => ({
+                    word: p.word,
+                    position: p.position
+                }));
+            }
+
+            // Transliterate the entire text first
+            if (currentLanguage !== 'sa') {
+                commentaryText = transliterateText(commentaryText, currentLanguage);
+
+                // Also transliterate the pratika words for matching
+                pratikaPositions = pratikaPositions.map(p => ({
+                    ...p,
+                    word: transliterateText(p.word, currentLanguage)
+                }));
+            }
+
+            // Now apply highlighting to transliterated text by replacing pratika words
+            if (pratikaPositions.length > 0) {
+                // Split by spaces and punctuation while preserving them
+                const words = commentaryText.split(/(\s+|[।॥,.!?;:])/);
+                commentaryText = words.map(word => {
+                    // Check if this word (trimmed) matches any pratika
+                    const trimmedWord = word.trim();
+                    if (trimmedWord && pratikaPositions.some(p => p.word === trimmedWord)) {
+                        return `<strong>${word}</strong>`;
+                    }
+                    return word;
+                }).join('');
+            }
+
+            // Create unique ID for this commentary
+            const commentaryId = `commentary-${englishName.toLowerCase().replace(/\s+/g, '-')}`;
+
+            commentariesHTML += `
+                <div class="detail-commentary">
+                    <div class="sloka-header commentary-header" data-target="${commentaryId}">
+                        <h3>${devanagariName} (${englishName})</h3>
+                        <span class="collapse-arrow">▼</span>
+                    </div>
+                    <div class="commentary-text-wrapper" id="${commentaryId}">
+                        <p class="commentary-text">${commentaryText.replace(/\n/g, '<br>')}</p>
+                    </div>
+                </div>
+            `;
+        }
+    }
+
+    // Find current sloka index and check for prev/next
+    const currentIndex = filteredSlokas.findIndex(s =>
+        s.sarga === sloka.sarga && s.sloka_number === sloka.sloka_number
+    );
+    const hasPrev = currentIndex > 0;
+    const hasNext = currentIndex < filteredSlokas.length - 1;
+
     detailContent.innerHTML = `
         <div class="detail-header">
-            <div class="madhva-image">
-                <img src="https://via.placeholder.com/150x200/8B4513/FFFFFF?text=Sri+Madhvacharya" 
-                     alt="Sri Madhvacharya" 
-                     title="Sri Madhvacharya">
-            </div>
-            <div class="detail-number">
-                <h2>सर्गः ${sloka.sarga}, श्लोकः ${sloka.sloka_number}</h2>
-                <p>Sarga ${sloka.sarga}, Sloka ${sloka.sloka_number}</p>
+            <div class="detail-nav-buttons">
+                <button class="nav-btn" id="prevSlokaBtn" title="Previous Sloka" ${!hasPrev ? 'disabled' : ''}>
+                    ←
+                </button>
+                <button class="nav-btn" id="nextSlokaBtn" title="Next Sloka" ${!hasNext ? 'disabled' : ''}>
+                    →
+                </button>
             </div>
         </div>
         <div class="detail-sloka">
-            <div class="sloka-header">
-                <h3>श्लोकः (Sloka)</h3>
-                <button class="speaker-btn" id="reciteBtn" title="Recite sloka">
-                    🔊 Recite
-                </button>
-            </div>
-            <p class="sloka-text-detail">${slokaText}</p>
+            <p class="sloka-text-detail">${slokaText.replace(/\n/g, '<br>')}</p>
         </div>
-        <div class="detail-meaning">
-            <div class="sloka-header">
-                <h3>अर्थः (Meaning)</h3>
-                ${meaning ? `<button class="speaker-btn" id="readBtn" title="Read meaning">🔊 Read</button>` : ''}
-            </div>
-            <p>${meaning || 'Meaning to be added'}</p>
-        </div>
+        ${commentariesHTML || '<div class="detail-meaning"><p>Commentaries to be added</p></div>'}
     `;
-    
-    // Attach event listeners after content is loaded
-    const reciteBtn = document.getElementById('reciteBtn');
-    if (reciteBtn) {
-        reciteBtn.addEventListener('click', () => speakText(audioText, 'sa', sloka.sarga, sloka.sloka_number));
+
+    // Setup navigation buttons
+    const prevBtn = document.getElementById('prevSlokaBtn');
+    const nextBtn = document.getElementById('nextSlokaBtn');
+
+    if (prevBtn && hasPrev) {
+        prevBtn.addEventListener('click', () => {
+            const prevSloka = filteredSlokas[currentIndex - 1];
+            showSlokaDetail(prevSloka);
+            // Scroll to top of detail view
+            slokaDetail.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
     }
-    
-    const readBtn = document.getElementById('readBtn');
-    if (readBtn && meaning) {
-        readBtn.addEventListener('click', () => speakText(meaning, 'en'));
+
+    if (nextBtn && hasNext) {
+        nextBtn.addEventListener('click', () => {
+            const nextSloka = filteredSlokas[currentIndex + 1];
+            showSlokaDetail(nextSloka);
+            // Scroll to top of detail view
+            slokaDetail.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
     }
+
+    // Setup collapsible commentaries
+    setupCollapsibleCommentaries();
 }
 
 // Text-to-speech function with MP3 support
@@ -420,12 +602,9 @@ function updateSectionTitle() {
     const sargaText = sargaSelect.options[sargaSelect.selectedIndex].text;
     
     let displayText = sargaText;
-    if (currentLanguage === 'kn') {
+    if (currentLanguage !== 'sa') {
         const sanText = sargaText.split('(')[0].trim();
-        displayText = transliterateText(sanText, 'kn');
-    } else if (currentLanguage === 'te') {
-        const sanText = sargaText.split('(')[0].trim();
-        displayText = transliterateText(sanText, 'te');
+        displayText = transliterateText(sanText, currentLanguage);
     }
     
     sectionTitle.textContent = displayText;
@@ -546,17 +725,271 @@ function playAllSlokas() {
 function stopRecitation() {
     isPlayingAll = false;
     window.speechSynthesis.cancel();
-    
+
     // Remove highlight from all slokas
     document.querySelectorAll('.sloka-card.playing').forEach(card => {
         card.classList.remove('playing');
     });
-    
+
     // Show play button, hide stop button
     const playBtn = document.getElementById('headingAudioBtn');
     const stopBtn = document.getElementById('stopAudioBtn');
     if (playBtn) playBtn.style.display = 'inline-block';
     if (stopBtn) stopBtn.style.display = 'none';
-    
+
     console.log('Recitation stopped');
+}
+
+// Toggle info panel visibility
+function toggleInfoPanel() {
+    if (container) {
+        const isHidden = container.classList.toggle('detail-view');
+
+        // Update button icon on the panel
+        const panelToggleBtn = document.getElementById('panelToggleBtn');
+        if (panelToggleBtn) {
+            panelToggleBtn.textContent = isHidden ? '▶' : '◀';
+            panelToggleBtn.title = isHidden ? 'Show panel' : 'Hide panel';
+        }
+
+        console.log('Info panel toggled:', isHidden ? 'hidden' : 'visible');
+    }
+}
+
+// Setup collapsible commentaries
+function setupCollapsibleCommentaries() {
+    // Add click handlers to each commentary header
+    const commentaryHeaders = document.querySelectorAll('.commentary-header');
+    commentaryHeaders.forEach(header => {
+        header.addEventListener('click', function() {
+            const targetId = this.getAttribute('data-target');
+            const wrapper = document.getElementById(targetId);
+            const arrow = this.querySelector('.collapse-arrow');
+
+            if (wrapper) {
+                wrapper.classList.toggle('collapsed');
+                if (arrow) {
+                    arrow.classList.toggle('rotated');
+                }
+            }
+        });
+
+        // Make header cursor pointer
+        header.style.cursor = 'pointer';
+    });
+}
+
+// Go to home (list view)
+function goToHome() {
+    if (currentView === 'detail') {
+        slokaDetail.style.display = 'none';
+        slokaList.style.display = 'block';
+        currentView = 'list';
+        currentSloka = null;
+
+        // Scroll to top smoothly
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+}
+
+// Load commentary visibility settings
+function loadCommentarySettings() {
+    const saved = localStorage.getItem('smvCommentaries');
+    if (saved) {
+        try {
+            visibleCommentaries = JSON.parse(saved);
+        } catch (e) {
+            console.error('Error loading commentary settings:', e);
+        }
+    }
+}
+
+// Save commentary visibility settings
+function saveCommentarySettings() {
+    localStorage.setItem('smvCommentaries', JSON.stringify(visibleCommentaries));
+}
+
+// Setup commentary dropdown in header
+function setupHeaderCommentaryDropdown() {
+    const dropdownBtn = document.getElementById('headerCommentaryDropdownBtn');
+    const dropdownContent = document.getElementById('headerCommentaryDropdownContent');
+
+    if (dropdownBtn && dropdownContent) {
+        // Set initial checkbox states
+        const checkboxes = dropdownContent.querySelectorAll('.commentary-check');
+        checkboxes.forEach(checkbox => {
+            const commentaryName = checkbox.getAttribute('data-commentary');
+            checkbox.checked = visibleCommentaries[commentaryName];
+        });
+
+        // Toggle dropdown
+        dropdownBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dropdownContent.classList.toggle('show');
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('#headerCommentarySelector')) {
+                dropdownContent.classList.remove('show');
+            }
+        });
+
+        // Prevent dropdown from closing when clicking inside
+        dropdownContent.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+
+        // Handle checkbox changes
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', (e) => {
+                const commentaryName = e.target.getAttribute('data-commentary');
+
+                if (commentaryName) {
+                    visibleCommentaries[commentaryName] = e.target.checked;
+                    saveCommentarySettings();
+
+                    // Refresh detail view if we're viewing a sloka
+                    if (currentSloka) {
+                        showSlokaDetail(currentSloka);
+                    }
+                }
+            });
+        });
+    }
+}
+
+// Setup keyboard shortcuts for navigation
+function setupKeyboardShortcuts() {
+    document.addEventListener('keydown', (e) => {
+        // Only work in detail view
+        if (currentView !== 'detail') return;
+
+        // Ignore if typing in input fields
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
+        // Left arrow or 'p' for previous
+        if (e.key === 'ArrowLeft' || e.key === 'p') {
+            const prevBtn = document.getElementById('prevSlokaBtn');
+            if (prevBtn && !prevBtn.disabled) {
+                prevBtn.click();
+                e.preventDefault();
+            }
+        }
+
+        // Right arrow or 'n' for next
+        if (e.key === 'ArrowRight' || e.key === 'n') {
+            const nextBtn = document.getElementById('nextSlokaBtn');
+            if (nextBtn && !nextBtn.disabled) {
+                nextBtn.click();
+                e.preventDefault();
+            }
+        }
+
+        // Escape to go back to list
+        if (e.key === 'Escape') {
+            slokaDetail.style.display = 'none';
+            slokaList.style.display = 'block';
+            currentView = 'list';
+            currentSloka = null;
+            e.preventDefault();
+        }
+    });
+}
+
+
+// Readability Controls
+function setupReadabilityControls() {
+    const increaseFontBtn = document.getElementById('increaseFont');
+    const decreaseFontBtn = document.getElementById('decreaseFont');
+    const increaseSpacingBtn = document.getElementById('increaseSpacing');
+    const decreaseSpacingBtn = document.getElementById('decreaseSpacing');
+    const themeSelect = document.getElementById('themeSelect');
+
+    if (increaseFontBtn) {
+        increaseFontBtn.addEventListener('click', () => {
+            fontSize = Math.min(fontSize + 0.1, 2.0);
+            applyReadabilitySettings();
+        });
+    }
+
+    if (decreaseFontBtn) {
+        decreaseFontBtn.addEventListener('click', () => {
+            fontSize = Math.max(fontSize - 0.1, 0.8);
+            applyReadabilitySettings();
+        });
+    }
+
+    if (increaseSpacingBtn) {
+        increaseSpacingBtn.addEventListener('click', () => {
+            lineSpacing = Math.min(lineSpacing + 0.2, 3.0);
+            applyReadabilitySettings();
+        });
+    }
+
+    if (decreaseSpacingBtn) {
+        decreaseSpacingBtn.addEventListener('click', () => {
+            lineSpacing = Math.max(lineSpacing - 0.2, 1.2);
+            applyReadabilitySettings();
+        });
+    }
+
+    if (themeSelect) {
+        themeSelect.addEventListener('change', (e) => {
+            applyTheme(e.target.value);
+        });
+    }
+}
+
+function applyReadabilitySettings() {
+    document.documentElement.style.setProperty('--base-font-size', fontSize + 'rem');
+    document.documentElement.style.setProperty('--line-height', lineSpacing);
+    
+    // Save to localStorage
+    localStorage.setItem('smvFontSize', fontSize);
+    localStorage.setItem('smvLineSpacing', lineSpacing);
+}
+
+function loadReadabilitySettings() {
+    // Load saved settings
+    const savedFontSize = localStorage.getItem('smvFontSize');
+    const savedLineSpacing = localStorage.getItem('smvLineSpacing');
+    const savedTheme = localStorage.getItem('smvTheme') || 'light';
+
+    if (savedFontSize) {
+        fontSize = parseFloat(savedFontSize);
+    }
+    if (savedLineSpacing) {
+        lineSpacing = parseFloat(savedLineSpacing);
+    }
+
+    applyReadabilitySettings();
+    applyTheme(savedTheme);
+
+    const themeSelect = document.getElementById('themeSelect');
+    if (themeSelect) {
+        themeSelect.value = savedTheme;
+    }
+}
+
+function applyTheme(theme) {
+    document.body.classList.remove('light-theme', 'sepia-theme', 'dark-theme');
+    document.body.classList.add(theme + '-theme');
+    localStorage.setItem('smvTheme', theme);
+}
+
+// Toggle header visibility
+function toggleHeader() {
+    const header = document.querySelector('header');
+    const headerToggleBtn = document.getElementById('headerToggleBtn');
+
+    if (header) {
+        const isHidden = header.classList.toggle('header-hidden');
+
+        // Update button icon
+        if (headerToggleBtn) {
+            headerToggleBtn.textContent = isHidden ? '▼' : '▲';
+            headerToggleBtn.title = isHidden ? 'Show header' : 'Hide header';
+        }
+    }
 }

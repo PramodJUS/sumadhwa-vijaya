@@ -10,17 +10,59 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+    <button class="header-toggle-btn" id="headerToggleBtn" title="Hide header">▲</button>
+
     <header>
-        <div class="madhwa-icon">
+        <button class="madhwa-icon" id="homeButton" title="Return to Home">
             <img src="images/madhwa.png" alt="Sri Madhvacharya">
-        </div>
-        <div class="language-selector-top">
-            <label for="language">Language:</label>
-            <select id="language">
-                <option value="sa">संस्कृतम् (Sanskrit)</option>
-                <option value="kn">ಕನ್ನಡ (Kannada)</option>
-                <option value="te">తెలుగు (Telugu)</option>
-            </select>
+        </button>
+        <div class="top-controls">
+            <div class="controls-right">
+                <div class="language-selector-top">
+                    <label for="language">Language:</label>
+                    <select id="language">
+                        <option value="sa">संस्कृतम् (Sanskrit)</option>
+                        <option value="en">English (Roman)</option>
+                        <option value="kn">ಕನ್ನಡ (Kannada)</option>
+                        <option value="te">తెలుగు (Telugu)</option>
+                        <option value="ta">தமிழ் (Tamil)</option>
+                        <option value="ml">മലയാളം (Malayalam)</option>
+                        <option value="bn">বাংলা (Bengali)</option>
+                        <option value="gu">ગુજરાતી (Gujarati)</option>
+                        <option value="or">ଓଡ଼ିଆ (Odia)</option>
+                    </select>
+                </div>
+                <div class="commentary-selector" id="headerCommentarySelector">
+                    <button class="commentary-dropdown-btn" id="headerCommentaryDropdownBtn">
+                        📚 Commentaries
+                    </button>
+                    <div class="commentary-dropdown-content" id="headerCommentaryDropdownContent">
+                        <label class="commentary-checkbox">
+                            <input type="checkbox" class="commentary-check" data-commentary="भावप्रकाशिका">
+                            भावप्रकाशिका (Bhavaprakashika)
+                        </label>
+                        <label class="commentary-checkbox">
+                            <input type="checkbox" class="commentary-check" data-commentary="पदार्थदीपिकोद्बोधिका">
+                            पदार्थदीपिकोद्बोधिका (Padarthadeepikodbhodhika)
+                        </label>
+                        <label class="commentary-checkbox">
+                            <input type="checkbox" class="commentary-check" data-commentary="मन्दोपाकारिणी">
+                            मन्दोपाकारिणी (Mandopakarini)
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="reading-controls">
+                <button class="control-btn" id="decreaseFont" title="Decrease font size">A−</button>
+                <button class="control-btn" id="increaseFont" title="Increase font size">A+</button>
+                <button class="control-btn" id="decreaseSpacing" title="Decrease line spacing">⇕−</button>
+                <button class="control-btn" id="increaseSpacing" title="Increase line spacing">⇕+</button>
+                <select id="themeSelect" title="Reading theme">
+                    <option value="light">☀ Light</option>
+                    <option value="sepia">📖 Sepia</option>
+                    <option value="dark">🌙 Dark</option>
+                </select>
+            </div>
         </div>
         <div class="header-content">
             <h1>सुमध्वविजयः</h1>
@@ -58,7 +100,12 @@
     <main>
         <div class="container">
             <div class="info-panel">
-                <h2>About Sumadhwa Vijaya</h2>
+                <div class="panel-header">
+                    <h2>About Sumadhwa Vijaya</h2>
+                    <button class="panel-toggle-btn" id="panelToggleBtn" title="Hide panel">
+                        ◀
+                    </button>
+                </div>
                 <p class="info-text">
                     <strong>Sumadhwa Vijaya</strong> is a Sanskrit biographical epic (mahakavya) composed by 
                     <strong>Narayana Panditacharya</strong>, a contemporary disciple of Sri Madhvacharya. 
@@ -90,7 +137,6 @@
                 </div>
                 
                 <div class="sloka-detail" id="slokaDetail" style="display: none;">
-                    <button class="back-button" id="backButton">← Back to List</button>
                     <div id="detailContent">
                         <!-- Detailed sloka content will be loaded here -->
                     </div>
@@ -103,11 +149,22 @@
         <p>Sumadhwa Vijaya by Narayana Panditacharya | For educational and devotional purposes</p>
     </footer>
 
-    <!-- Transliteration scripts -->
-    <script src="js/transliterate.js"></script>
-    <script src="js/scripts/kannada-script.js"></script>
-    <script src="js/scripts/telugu-script.js"></script>
-    
+    <!-- Core transliteration engine (Local) -->
+    <script src="transliterate-library/transliterate.js"></script>
+
+    <!-- All available Indic language scripts -->
+    <script src="transliterate-library/scripts/english-script.js"></script>
+    <script src="transliterate-library/scripts/kannada-script.js"></script>
+    <script src="transliterate-library/scripts/telugu-script.js"></script>
+    <script src="transliterate-library/scripts/tamil-script.js"></script>
+    <script src="transliterate-library/scripts/malayalam-script.js"></script>
+    <script src="transliterate-library/scripts/bengali-script.js"></script>
+    <script src="transliterate-library/scripts/gujarati-script.js"></script>
+    <script src="transliterate-library/scripts/odia-script.js"></script>
+
+    <!-- Sanskrit Pratika Identifier -->
+    <script src="sanskrit-search-library/pratika.js"></script>
+
     <!-- Main application -->
     <script src="js/app.js"></script>
 </body>
